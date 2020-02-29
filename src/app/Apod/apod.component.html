@@ -1,0 +1,19 @@
+<div class="clr-justify-content-center">
+    <div class="clr-justify-content-center">
+        <h1>Astronomy Picture of the Day</h1>
+        <h2>{{apod.title}}</h2>
+        <p class="p3">{{apod.date | date: 'fullDate'}}</p>
+    </div>
+
+
+    <img class="responsive-img" src={{apod.url}} alt="Today's apod">
+    <a href="{{apod.hdurl}}">Click for full size</a>
+    <form clrForm clrLayout="vertical">
+        <clr-date-container>
+            <label for="dateControl">Date for your APOD</label>
+            <input type="date" [(clrDate)]="date" placeholder="MM/DD/YYYY">
+        </clr-date-container>
+        <button class="btn btn-primary" (click)="getNewApod()">Get Apod</button>
+    </form>
+    <p class="p3">{{apod.explanation}}</p>
+</div>

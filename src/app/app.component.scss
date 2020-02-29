@@ -1,0 +1,14 @@
+.header .branding .clr-icon {
+    height: 50px;
+    width: 50px;
+    &.clr-astro-logo {
+        background-image: url(../../SVGs/moon.svg);
+    }
+}
+
+.clr-footer {
+    background: #c1c1c1;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 24px;
+}
