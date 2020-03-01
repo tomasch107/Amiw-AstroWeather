@@ -25,4 +25,10 @@ export class ApodComponent implements OnInit {
       this.apodService.getApodByDate(moment(this.date).format().toString().substring(0, 10)).subscribe(response => this.apod = response);
     }
   }
+
+  getTodaysDate(){
+    var todaysDate = new Date();
+    console.log(todaysDate.getFullYear()+'-'+todaysDate.getMonth()+'-'+todaysDate.getDay());
+    return todaysDate.getFullYear()+'-'+todaysDate.getMonth()+'-'+todaysDate.getDay();
+  }
 }
