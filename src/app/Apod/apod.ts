@@ -7,5 +7,4 @@ export class Apod {
     serviceVersion: string;
     title: string;
     url: string;
-
 }

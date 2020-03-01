@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ApodComponent } from './apod/apod.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { registerLocaleData } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     ClarityModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
