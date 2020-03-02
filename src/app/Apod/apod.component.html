@@ -19,7 +19,7 @@
 <div class="apodForm">
     <form clrForm clrLayout="vertical">
         <clr-date-container>
-            <label for="dateControl">Date for your APOD</label>
+            <label for="dateControl">Date of your APOD</label>
             <input type="date" clrDate name="date" [(clrDate)]="date" placeholder="MM/DD/YYYY" min="1995-06-16" max="{{todaysDate}}">
         </clr-date-container>
     </form>
@@ -30,17 +30,24 @@
     <p class="p3">{{apod.explanation}}</p>
 </div>
 
-<div>
-    <button (click)="isModalVisible = true">Delete Order</button>
+<div *ngIf="isModalVisible">
+    <div class="modal">
+        <div class="modal-dialog" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" type="button">
+                                <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                            </button>
+                    <h3 class="modal-title">Error</h3>
+                </div>
+                <div class="modal-body">
+                    <p>{{errorMessage}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="isModalVisible = false">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" aria-hidden="true"></div>
 </div>
-
-<clr-modal [(clrModalOpen)]="isModalVisible">
-    <h3 class="modal-title">I have a nice title</h3>
-    <div class="modal-body">
-        <p>But not much to say...</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline" (click)="isModalVisible = false">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="isModalVisible = false">Ok</button>
-    </div>
-</clr-modal>

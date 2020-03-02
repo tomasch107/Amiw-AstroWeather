@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { APODService } from '../Services/apod.service';
 import { Apod } from './apod';
 import * as moment from 'moment';
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
-
 
 @Component({
   selector: 'app-apod',
@@ -25,23 +22,21 @@ export class ApodComponent implements OnInit {
       this.apod = response;
       this.loading=false;
     });
-
     this.setTodaysDate();
   }
 
   getNewApod(){
-    if(this.date <= new Date()){
-      this.loading=true;
-      this.apodService.getApodByDate(moment(this.date).format().toString().substring(0, 10)).subscribe(response => {
-        this.apod = response;
-        this.loading=false;
-      },err => {console.log('HTTP Error', err.error.msg, this.isModalVisible);
+          this.loading=true;
+          this.apodService.getApodByDate(moment(this.date).format().toString().substring(0, 10)).subscribe(response => {
+          this.apod = response;
+          this.loading=false;
+      },err => {
+          console.log('HTTP Error', err.error, this.isModalVisible);
           this.errorMessage=err.error.msg;
           this.isModalVisible=true;
-      },
-      () => console.log('HTTP request completed.')
+      },() => console.log('HTTP request completed.')
       );
-    }
+
   }
 
   setTodaysDate(){
