@@ -1,0 +1,205 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+html,
+body {
+    background-color: #F3F3F3;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 5px 30px;
+    width: 290px;
+    height: 400px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, .2);
+    -webkit-animation: open 2s cubic-bezier(.39, 0, .38, 1);
+}
+
+@-webkit-keyframes open {
+    from {
+        padding: 0 30px;
+        height: 0;
+    }
+    to {
+        height: 400px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    position: relative;
+}
+
+h1 {
+    float: right;
+    color: #666;
+    font-weight: 300;
+    font-size: 6.59375em;
+    line-height: .2em;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
+}
+
+h2 {
+    color: black;
+    font-weight: 300;
+    font-size: 2.25em;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1);
+}
+
+h3 {
+    float: left;
+    margin-top: 2px;
+    margin-right: 33px;
+    color: #777;
+    font-weight: 400;
+    font-size: 1em;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .1s;
+}
+
+span {
+    margin-left: 24px;
+    color: #999;
+    font-weight: 300;
+}
+
+span span {
+    margin-left: 0;
+}
+
+.dot {
+    font-size: .9em;
+}
+
+.sky {
+    position: relative;
+    margin-top: 90px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
+}
+
+.additionalData {
+    position: relative;
+    background-color: transparent;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .2s;
+    h3 {
+        margin-top: 2px;
+    }
+    .feels {
+        margin-top: 20px;
+    }
+}
+
+table {
+    position: relative;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+tr:nth-child(1) td:nth-child(1),
+tr:nth-child(1) td:nth-child(2),
+tr:nth-child(1) td:nth-child(3),
+tr:nth-child(1) td:nth-child(4),
+tr:nth-child(1) td:nth-child(5) {
+    padding-bottom: 32px;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .7s;
+}
+
+tr:nth-child(2) td:nth-child(1),
+tr:nth-child(2) td:nth-child(2),
+tr:nth-child(2) td:nth-child(3),
+tr:nth-child(2) td:nth-child(4),
+tr:nth-child(2) td:nth-child(5) {
+    padding-bottom: 7px;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .9s;
+}
+
+tr:nth-child(3) td:nth-child(1),
+tr:nth-child(3) td:nth-child(2),
+tr:nth-child(3) td:nth-child(3),
+tr:nth-child(3) td:nth-child(4),
+tr:nth-child(3) td:nth-child(5) {
+    padding-bottom: 7px;
+    -webkit-animation: up 2s cubic-bezier(.39, 0, .38, 1) .9s;
+}
+
+tr:nth-child(2),
+tr:nth-child(3) {
+    font-size: .9em;
+}
+
+tr:nth-child(3) {
+    color: #999;
+}
+
+@-webkit-keyframes up {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(15px);
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: translateY(15px);
+    }
+    99% {
+        -webkit-animation-play-state: paused;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.weatherSvg {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    &.moon {
+        background-image: url(../../../../SVGs/moon.svg);
+    }
+    &.moonClouds {
+        background-image: url(../../../../SVGs/moonClouds.svg);
+    }
+    &.moonCloudsRain {
+        background-image: url(../../../../SVGs/moonCloudsRain.svg);
+    }
+    &.moonMist {
+        background-image: url(../../../../SVGs/moonMist.svg);
+    }
+    &.cloudsRain {
+        background-image: url(../../../../SVGs/cloudsRain.svg);
+    }
+    &.sun {
+        background-image: url(../../../../SVGs/sun.svg);
+    }
+    &.sunClouds {
+        background-image: url(../../../../SVGs/sunClouds.svg);
+    }
+    &.sunCloudsRain {
+        background-image: url(../../../../SVGs/sunCloudsRain.svg);
+    }
+    &.sunMist {
+        background-image: url(../../../../SVGs/sunMist.svg);
+    }
+    &.clouds {
+        background-image: url(../../../../SVGs/clouds.svg);
+    }
+    &.snow {
+        background-image: url(../../../../SVGs/snow.svg);
+    }
+    &.storm {
+        background-image: url(../../../../SVGs/storm.svg);
+    }
+    &.rainStorm {
+        background-image: url(../../../../SVGs/rainStorm.svg);
+    }
+    &.freezingRain {
+        background-image: url(../../../../SVGs/freezingRain.svg);
+    }
+}

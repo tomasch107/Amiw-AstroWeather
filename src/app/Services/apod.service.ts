@@ -17,7 +17,7 @@ export class APODService {
     return this.http.get<Apod>(api + '?api_key=' + apiKey);
   }
 
-  getApodByDate(date: string): Observable<Apod>{
+  getApodByDate(date: string): Observable<Apod> {
     return this.http.get<Apod>(api + '?api_key=' + apiKey + '&date=' + date);
   }
 }

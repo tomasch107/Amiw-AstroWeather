@@ -1,0 +1,62 @@
+<h1>Your daily weather</h1>
+<form clrForm>
+    <clr-input-container>
+        <label>Type in your city</label>
+        <input clrInput placeholder="City" name="city" [(ngModel)]="city" />
+    </clr-input-container>
+    <button class="btn btn-primary" (click)="getWeatherData(city)">Get weather</button>
+</form>
+<clr-tabs>
+    <clr-tab>
+        <button clrTabLink>Daily weather</button>
+        <ng-template [(clrIfActive)]="dailyWeatherActive">
+            <clr-tab-content>
+                <div *ngIf="loading else loaded">
+                    <span class="spinner">
+                        Loading...
+                    </span>
+                </div>
+
+                <ng-template #loaded>
+                    <div *ngIf="show">
+                        <app-daily [weatherData]="weatherData">
+                        </app-daily>
+                    </div>
+                </ng-template>
+            </clr-tab-content>
+        </ng-template>
+    </clr-tab>
+
+    <clr-tab>
+        <button clrTabLink>5 Days weather</button>
+        <ng-template [(clrIfActive)]="fiveDaysActive">
+            <clr-tab-content>
+                <div *ngIf="show">
+                    <app-five-days-weather></app-five-days-weather>
+                </div>
+            </clr-tab-content>
+        </ng-template>
+    </clr-tab>
+</clr-tabs>
+
+<div *ngIf="isModalVisible">
+    <div class="modal">
+        <div class="modal-dialog" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" type="button" (click)="isModalVisible = false">
+                              <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                          </button>
+                    <h3 class="modal-title">Error</h3>
+                </div>
+                <div class="modal-body">
+                    <p>{{errorMessage}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="isModalVisible = false">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" aria-hidden="true"></div>
+</div>

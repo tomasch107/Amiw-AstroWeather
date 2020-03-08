@@ -12,7 +12,7 @@
 
     <ng-template #loaded>
         <img class="responsive-img" src={{apod.url}} alt="Today's apod">
-        <a href="{{apod.hdurl}}">Click for full size</a>
+        <a href="{{apod.hdurl}}" target="_blank">Click for full size</a>
     </ng-template>
 </div>
 
@@ -35,7 +35,7 @@
         <div class="modal-dialog" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button aria-label="Close" class="close" type="button">
+                    <button aria-label="Close" class="close" type="button" (click)="isModalVisible = false">
                                 <clr-icon aria-hidden="true" shape="close"></clr-icon>
                             </button>
                     <h3 class="modal-title">Error</h3>

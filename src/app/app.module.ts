@@ -8,10 +8,16 @@ import { ApodComponent } from './apod/apod.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { WeatherComponent } from './Weather/weather/weather.component';
+import { DailyComponent } from './Weather/daily/daily.component';
+import { FiveDaysWeatherComponent } from './Weather/five-days-weather/five-days-weather.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ApodComponent
+    ApodComponent,
+    WeatherComponent,
+    DailyComponent,
+    FiveDaysWeatherComponent
   ],
   imports: [
     BrowserModule,
