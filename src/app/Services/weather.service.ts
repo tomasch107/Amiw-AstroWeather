@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {WeatherResponse} from '../WeatherResponse/weather-response';
 
-const api = 'http://api.openweathermap.org/data/2.5/weather';
+const api = 'https://api.openweathermap.org/data/2.5/weather';
+const apiForecast = 'https://api.openweathermap.org/data/2.5/forecast';
 const apiKey = '06d82af960036ad066c4c984d43c53ec';
 
 @Injectable({
@@ -14,5 +15,8 @@ export class WeatherService {
   }
   getWeatherByLocation(location: string): Observable<WeatherResponse> {
     return this.http.get<WeatherResponse>(api + '?q=' + location + '&units=metric&APPID=' + apiKey);
+  }
+  get5DaysWeatherByLocation(location: string): Observable<WeatherResponse> {
+    return this.http.get<WeatherResponse>(apiForecast + '?q=' + location + '&units=metric&APPID=' + apiKey);
   }
 }
