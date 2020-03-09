@@ -10,6 +10,7 @@ import { WeatherResponse } from '../../WeatherResponse/weather-response';
 export class WeatherComponent implements OnInit {
 
   weatherData: WeatherResponse;
+  weatherForecast: any;
   city = localStorage.getItem('location');
   dailyWeatherActive: false;
   fiveDaysActive: false;
@@ -46,7 +47,7 @@ export class WeatherComponent implements OnInit {
   getWeatherForecast(location: string)  {
     this.weatherService.get5DaysWeatherByLocation(location).subscribe(response => {
       this.loading = false;
-      this.weatherData = response;
+      this.weatherForecast = response;
       this.resetChildForm();
       localStorage.setItem('location', location);
     }, err => {

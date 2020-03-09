@@ -28,11 +28,11 @@
     </clr-tab>
 
     <clr-tab>
-        <button clrTabLink>5 Days weather</button>
+        <button clrTabLink>Hourly weather</button>
         <ng-template [(clrIfActive)]="fiveDaysActive">
             <clr-tab-content>
                 <div *ngIf="show">
-                    <app-five-days-weather></app-five-days-weather>
+                    <app-five-days-weather [weatherForecast]="weatherForecast"></app-five-days-weather>
                 </div>
             </clr-tab-content>
         </ng-template>

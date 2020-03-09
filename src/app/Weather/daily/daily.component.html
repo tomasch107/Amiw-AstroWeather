@@ -5,15 +5,13 @@
     <h3>Wind {{weatherData.wind.speed}}km/h</h3>
     <h3>Clouds {{weatherData.clouds.all}}%</h3>
 
-    <h1>{{weatherData.main.temp.toFixed(0)}}°</h1>
-    <div class="sky">
-        <div class="weatherSvg" [ngClass]="weatherIconClass">
+    <h1>{{weatherData.main.temp.toFixed(0)}}°C</h1>
 
-        </div>
+    <div class="weatherSvg" [ngClass]="weatherIconClass">
+
     </div>
-    <div class="additionalData">
-        <h3 class="feels">•Feels like: {{weatherData.main.feels_like.toFixed(0)}}°</h3>
-        <h3>•Humidity: {{weatherData.main.humidity}}%</h3>
-        <h3>•Pressure: {{weatherData.main.pressure}} hPa</h3>
-    </div>
+
+    <h3 class="feels">•Feels like: {{weatherData.main.feels_like.toFixed(0)}}°</h3>
+    <h3>•Humidity: {{weatherData.main.humidity}}%</h3>
+    <h3>•Pressure: {{weatherData.main.pressure}} hPa</h3>
 </div>
