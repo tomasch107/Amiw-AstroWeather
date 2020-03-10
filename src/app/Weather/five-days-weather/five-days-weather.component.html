@@ -1,7 +1,12 @@
 <h1>{{weatherForecast.city.name}}, {{weatherForecast.city.country}}</h1>
-<div class="chart-container" style="position: relative; height:auto; width:80vw">
+<input type="checkbox" clrCheckbox value="option1" [(ngModel)]="myCheckbox" name="options" />
+<label>Show temperature, humidity chart</label>
+
+<div class="chart-container" [hidden]="!myCheckbox">
     <canvas id="myChart"></canvas>
 </div>
+
+
 <ul>
     <li *ngFor="let item of weatherForecast.list; let i = index">
         <app-hourly-weather [hourlyWeather]="item"></app-hourly-weather>

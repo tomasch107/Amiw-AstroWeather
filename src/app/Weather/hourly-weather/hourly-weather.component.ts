@@ -23,7 +23,7 @@ export class HourlyWeatherComponent implements OnInit {
     this.date = new Date(this.hourlyWeather.dt * 1000);
     const minutes = '0' + this.date.getMinutes();
     this.minutes = minutes.substr(-2);
-    this.day = moment(this.date).format('MMM Do YY');
+    this.day = moment(this.date).format('dddd');
   }
 
   setIconClass(apiIcon: string){

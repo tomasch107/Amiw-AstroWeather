@@ -8,6 +8,7 @@ import * as moment from 'moment';
   styleUrls: ['./five-days-weather.component.scss']
 })
 export class FiveDaysWeatherComponent implements OnInit {
+  myCheckbox: boolean;
   canvas: any;
   ctx: any;
   temperature: any;
@@ -70,7 +71,7 @@ export class FiveDaysWeatherComponent implements OnInit {
 
   convertTimestamp(element: any) :string {
     let date = new Date(element.dt * 1000);
-    return moment(date).format('lll');
+    return moment(date).calendar();
   }
 }
 
