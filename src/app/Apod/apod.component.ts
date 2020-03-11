@@ -15,7 +15,7 @@ export class ApodComponent implements OnInit {
   loading = true;
   errorMessage='';
   isModalVisible = false;
-  constructor(private apodService: APODService) { }
+  constructor(private apodService: APODService) {}
 
   ngOnInit() {
     this.apodService.getApod().subscribe(response => {
@@ -26,24 +26,23 @@ export class ApodComponent implements OnInit {
   }
 
   getNewApod(){
-          this.loading=true;
-          this.apodService.getApodByDate(moment(this.date).format().toString().substring(0, 10)).subscribe(response => {
-          this.apod = response;
-          this.loading=false;
-      },err => {
+      this.loading=true;
+      this.apodService.getApodByDate(moment(this.date).format().toString().substring(0, 10)).subscribe(response => {
+        this.apod = response;
+        this.loading=false;
+        },err => {
           console.log('HTTP Error', err.error, this.isModalVisible);
           this.errorMessage=err.error.msg;
           this.isModalVisible=true;
-      },() => console.log('HTTP request completed.')
-      );
-
+    },() => console.log('HTTP request completed.')
+    );
   }
 
   setTodaysDate(){
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
     this.todaysDate = yyyy + '-' + mm + '-' + dd;
   }
 }

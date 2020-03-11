@@ -12,6 +12,7 @@ import { WeatherComponent } from './Weather/weather/weather.component';
 import { DailyComponent } from './Weather/daily/daily.component';
 import { FiveDaysWeatherComponent } from './Weather/five-days-weather/five-days-weather.component';
 import { HourlyWeatherComponent } from './Weather/hourly-weather/hourly-weather.component';
+import { MainComponent } from './main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { HourlyWeatherComponent } from './Weather/hourly-weather/hourly-weather.
     WeatherComponent,
     DailyComponent,
     FiveDaysWeatherComponent,
-    HourlyWeatherComponent
+    HourlyWeatherComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { HourlyWeatherComponent } from './Weather/hourly-weather/hourly-weather.
     FormsModule,
     ClarityModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

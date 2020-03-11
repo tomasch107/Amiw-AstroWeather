@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../Services/weather.service';
 import { WeatherResponse } from '../../WeatherResponse/weather-response';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
@@ -18,7 +19,13 @@ export class WeatherComponent implements OnInit {
   loading = true;
   isModalVisible = false;
   errorMessage = '';
-  constructor(private weatherService: WeatherService) { }
+  form: FormGroup;
+
+  constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      city: ['', [Validators.required, Validators.pattern('^[A-Za-z][A-Za-z0-9]*')]],
+    });
+   }
 
   ngOnInit(): void {
     if (this.city == null) {
@@ -26,10 +33,18 @@ export class WeatherComponent implements OnInit {
     }
     this.getWeather(this.city);
   }
+
+  submit() {
+    if (this.form.valid) {
+      this.getWeather(this.form.value.city);
+    }
+  }
+
   getWeather(location: string) {
     this.getWeatherForecast(location);
     this.getCurrentWeather(location);
   }
+
   getCurrentWeather(location: string) {
     this.weatherService.getWeatherByLocation(location).subscribe(response => {
       this.loading = false;

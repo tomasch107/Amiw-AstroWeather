@@ -1,28 +1,21 @@
 <h1>Your daily weather</h1>
 <form clrForm>
-    <clr-input-container>
+    <clr-input-container [formGroup]="form">
         <label>Type in your city</label>
-        <input clrInput placeholder="City" name="city" [(ngModel)]="city" />
+        <input clrInput placeholder="City" formControlName="city" name="city" required />
+        <clr-control-error>City is required and can't start with a number</clr-control-error>
     </clr-input-container>
-    <button class="btn btn-primary" (click)="getWeather(city)">Get weather</button>
+    <button class="btn btn-primary" (click)="submit()">Get weather</button>
 </form>
 <clr-tabs>
     <clr-tab>
         <button clrTabLink>Daily weather</button>
         <ng-template [(clrIfActive)]="dailyWeatherActive">
             <clr-tab-content>
-                <div *ngIf="loading else loaded">
-                    <span class="spinner">
-                        Loading...
-                    </span>
+                <div *ngIf="show">
+                    <app-daily [weatherData]="weatherData">
+                    </app-daily>
                 </div>
-
-                <ng-template #loaded>
-                    <div *ngIf="show">
-                        <app-daily [weatherData]="weatherData">
-                        </app-daily>
-                    </div>
-                </ng-template>
             </clr-tab-content>
         </ng-template>
     </clr-tab>

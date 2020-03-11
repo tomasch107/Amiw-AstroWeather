@@ -26,7 +26,7 @@ export class FiveDaysWeatherComponent implements OnInit {
   renderChart(){
     this.canvas = document.getElementById('myChart');
     this.ctx = this.canvas.getContext('2d');
-    let myChart = new Chart(this.ctx, {
+    const myChart = new Chart(this.ctx, {
       type: 'line',
       data: {
           labels: this.labels,
@@ -51,14 +51,14 @@ export class FiveDaysWeatherComponent implements OnInit {
       },
       options: {
         responsive: true,
-        display:true
+        display: true
       }
     });
   }
   getChartData() {
-    let numbers = new Array();
-    let labels = new Array();
-    let humidity = new Array();
+    const numbers = new Array();
+    const labels = new Array();
+    const humidity = new Array();
     this.weatherForecast.list.forEach(element => {
       numbers.push(element.main.temp);
       labels.push(this.convertTimestamp(element));
@@ -69,8 +69,8 @@ export class FiveDaysWeatherComponent implements OnInit {
     this.humidity = humidity;
   }
 
-  convertTimestamp(element: any) :string {
-    let date = new Date(element.dt * 1000);
+  convertTimestamp(element: any): string {
+    const date = new Date(element.dt * 1000);
     return moment(date).calendar();
   }
 }
