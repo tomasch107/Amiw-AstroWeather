@@ -23,7 +23,7 @@ export class WeatherComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      city: ['', [Validators.required, Validators.pattern('^[A-Za-z][A-Za-z0-9]*')]],
+      city: ['', [Validators.required, Validators.pattern('^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9]*')]],
     });
    }
 
